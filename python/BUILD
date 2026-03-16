@@ -41,8 +41,8 @@ pybind_extension(
         "@nanobind_json",
         "@litert//litert/c/internal:litert_logging",
         "//runtime/conversation",
+        "//runtime/core:engine_impl",
         "//runtime/engine:engine_factory",
-        "//runtime/engine:engine_impl_selected",  # buildcleaner: keep
         "//runtime/engine:engine_interface",
         "@litert//tflite:minimal_logging",
         "@litert//tflite/core/c:private_c_api_types",

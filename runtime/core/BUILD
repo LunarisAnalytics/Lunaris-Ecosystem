@@ -35,6 +35,7 @@ package_group(
         # for e2e tests.
         "//runtime/e2e_tests/...",
         "//c/...",
+        "//python/...",
     ],
 )
 
