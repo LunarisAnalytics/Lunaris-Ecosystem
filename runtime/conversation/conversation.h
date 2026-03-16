@@ -494,12 +494,12 @@ class Conversation {
       PromptTemplate prompt_template, ConversationConfig config,
       std::unique_ptr<ConstraintProvider> constraint_provider = nullptr)
       : engine_(engine),
-        session_(std::move(session)),
         model_data_processor_(std::move(model_data_processor)),
         preface_(preface),
         prompt_template_(std::move(prompt_template)),
         config_(config),
-        constraint_provider_(std::move(constraint_provider)) {}
+        constraint_provider_(std::move(constraint_provider)),
+        session_(std::move(session)) {}
 
   absl::StatusOr<std::string> GetSingleTurnText(
       const Message& message, const OptionalArgs& optional_args);
@@ -526,7 +526,6 @@ class Conversation {
   // Keep a reference to the creator engine to enable access to the shared
   // resources that might be required for features like cloning.
   Engine& engine_;
-  std::unique_ptr<Engine::Session> session_;
   std::unique_ptr<ModelDataProcessor> model_data_processor_;
   Preface preface_;
   PromptTemplate prompt_template_;
@@ -548,6 +547,11 @@ class Conversation {
       std::string,
       std::vector<std::unique_ptr<Engine::Session::TaskController>>>
       task_controllers_ ABSL_GUARDED_BY(task_controllers_mutex_);
+
+  // Declare the session after model_data_processor_ and other members it
+  // depends on so that the session is destroyed before them. This is to avoid
+  // memory corruption and null-pointer deference issues.
+  std::unique_ptr<Engine::Session> session_;
 };
 }  // namespace litert::lm
 
