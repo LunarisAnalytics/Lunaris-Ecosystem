@@ -510,5 +510,9 @@ def main(_) -> None:
   _build_litertlm_file(parsed_args)
 
 
+def run():
+  """Entry point for console_scripts."""
+  app.run(main, sys.argv[:1])
+
 if __name__ == "__main__":
   app.run(main, sys.argv[:1])

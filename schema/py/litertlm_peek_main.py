@@ -61,5 +61,9 @@ def main(_):
     sys.exit(1)
 
 
+def run():
+  """Entry point for console_scripts."""
+  app.run(main, sys.argv[:1])
+
 if __name__ == "__main__":
   app.run(main, sys.argv[:1])
