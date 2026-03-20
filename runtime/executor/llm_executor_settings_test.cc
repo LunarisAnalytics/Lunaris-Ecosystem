@@ -336,6 +336,7 @@ TEST(LlmExecutorConfigTest, AdvancedSettingsWithGpuContextLowPriority) {
   ASSERT_OK(model_assets);
   auto settings = LlmExecutorSettings::CreateDefault(*std::move(model_assets),
                                                      Backend::GPU_ARTISAN);
+  ASSERT_OK(settings);
   (*settings).SetAdvancedSettings(AdvancedSettings{
       .gpu_context_low_priority = true,
   });

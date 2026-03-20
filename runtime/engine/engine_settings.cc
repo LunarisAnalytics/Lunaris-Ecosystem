@@ -285,8 +285,6 @@ absl::Status EngineSettings::MaybeUpdateAndValidate(
     advanced_settings.hint_waiting_for_completion =
         metadata.has_llm_model_type() &&
         metadata.llm_model_type().has_generic_model();
-    ABSL_LOG(INFO) << "hint_waiting_for_completion: "
-                   << advanced_settings.hint_waiting_for_completion.value();
     main_executor_settings_.SetAdvancedSettings(advanced_settings);
   }
 
@@ -306,8 +304,6 @@ absl::Status EngineSettings::MaybeUpdateAndValidate(
     advanced_settings.gpu_context_low_priority =
         metadata.has_llm_model_type() &&
         metadata.llm_model_type().has_generic_model();
-    ABSL_LOG(INFO) << "opencl_context_low_priority: "
-                   << advanced_settings.gpu_context_low_priority.value();
     main_executor_settings_.SetAdvancedSettings(advanced_settings);
   }
 
