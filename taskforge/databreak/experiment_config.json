@@ -1,0 +1,24 @@
+{
+  "experimentId": "exp-001",
+  "createdAt": "2025-09-23T12:00:00Z",
+  "updatedAt": "2025-09-23T12:00:00Z",
+  "description": "Volatility analysis experiment for SOL token",
+
+  "parameters": {
+    "tokenSymbol": "SOL",
+    "analysisWindowMinutes": 60,
+    "volatilityThreshold": 0.05,
+    "liquidityThresholdUSD": 100000,
+    "flagsMask": 0
+  },
+
+  "status": "draft", 
+  "results": null,
+
+  "metadata": {
+    "owner": "research-team",
+    "tags": ["volatility", "risk", "liquidity"]
+  },
+
+  "notes": ""
+}

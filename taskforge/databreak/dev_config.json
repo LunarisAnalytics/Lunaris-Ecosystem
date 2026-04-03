@@ -1,0 +1,30 @@
+{
+  "projectName": "FlowLab",
+  "environment": "development",
+
+  "logging": {
+    "level": "debug",
+    "destinations": ["console", "file"],
+    "filePath": "./logs/flowlab.log",
+    "maxFileSizeMB": 10,
+    "rotation": "daily"
+  },
+
+  "features": {
+    "enableDiagnostics": true,
+    "enableRealTimeAlerts": false,
+    "enableMetrics": true,
+    "enableTracing": false
+  },
+
+  "server": {
+    "host": "127.0.0.1",
+    "port": 4000,
+    "enableCORS": true
+  },
+
+  "security": {
+    "useTLS": false,
+    "allowedOrigins": ["*"]
+  }
+}
